@@ -157,7 +157,11 @@ static NSString *secretCode = @"132";
 
 // TextField
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    return [textField resignFirstResponder];
+    if (textField.tag == 1) {
+        return [self.passwordTextField becomeFirstResponder];
+    } else {
+        return [textField resignFirstResponder];
+    }
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
